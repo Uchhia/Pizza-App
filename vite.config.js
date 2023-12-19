@@ -4,6 +4,6 @@ import eslint from "vite-plugin-eslint";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "Pizza-App",
+  base: "/Pizza-App/",
   plugins: [react(), eslint()],
 });
