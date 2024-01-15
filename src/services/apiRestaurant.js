@@ -11,6 +11,7 @@ export async function getMenu() {
 }
 
 export async function getOrder(id) {
+  console.log(`${API_URL}/order/${id}`);
   const res = await fetch(`${API_URL}/order/${id}`);
   if (!res.ok) throw Error(`Couldn't find order #${id}`);
 
@@ -27,7 +28,6 @@ export async function createOrder(newOrder) {
         'Content-Type': 'application/json',
       },
     });
-
     if (!res.ok) throw Error();
     const { data } = await res.json();
     return data;
@@ -45,10 +45,12 @@ export async function updateOrder(id, updateObj) {
         'Content-Type': 'application/json',
       },
     });
+    console.log(res);
 
     if (!res.ok) throw Error();
     // We don't need the data, so we don't return anything
   } catch (err) {
+    console.log(err);
     throw Error('Failed updating your order');
   }
 }
